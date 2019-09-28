@@ -1,3 +1,4 @@
 {
-    "skip-arches": ["arm"]
+    "skip-arches": ["arm"],
+    "end-of-life": "Old plugin version based on 18.08 runtime. Please install this plugin in a more recent branch matching VLC one, like 3-19.08."
 }

@@ -21,8 +21,8 @@
         "buildsystem": "simple",
         "build-commands": [
           "mkdir -p /app/share/vlc/extra/bdj/jre",
-          "cp -r /usr/lib/sdk/openjdk8/jvm/java-8-openjdk/* /app/share/vlc/extra/bdj/jre",
-          "rm -rf /app/share/vlc/extra/bdj/jre/src.zip /app/share/vlc/extra/bdj/jre/include /app/share/vlc/extra/bdj/jre/demo /app/share/vlc/extra/bdj/jre/sample"
+          "cp -ar /usr/lib/sdk/openjdk8/jvm/java-8-openjdk/{bin,lib} /app/share/vlc/extra/bdj/jre",
+          "find /app/share/vlc/extra/bdj/jre -type f -name '*.diz' -delete"
         ]
     },
     {

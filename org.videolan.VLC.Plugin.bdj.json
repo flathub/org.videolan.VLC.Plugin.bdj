@@ -35,9 +35,9 @@
       "sources": [
         {
           "type": "file",
-          "url": "http://apache.mirrors.ovh.net/ftp.apache.org/dist//ant/binaries/apache-ant-1.10.7-bin.tar.bz2",
+          "url": "http://apache.mirrors.ovh.net/ftp.apache.org/dist//ant/binaries/apache-ant-1.10.9-bin.tar.bz2",
           "dest-filename": "apache-ant-bin.tar.bz2",
-          "sha512": "d6d14cddfeed51902618cdbda338d148fd76a7e122b558ccc49af685cf1adc9f8e079e3deb3bee361cc9652fef5c859e414d6e28f15a4447751e3dd61e1df499"
+          "sha512": "e74f490c64addfb5040ee80d38d4de3057b8fc7c58dd627dd77883964fd41edfc208230f45ee5500d70fc07a2f81a1d8d069a3b70ed6055c2975c49d753b73bc"
         }
       ]
     },

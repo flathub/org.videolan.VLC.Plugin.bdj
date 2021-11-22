@@ -3,17 +3,17 @@
   "build-extension": true,
   "runtime": "org.videolan.VLC",
   "runtime-version": "stable",
-  "branch": "3-20.08",
-  "sdk": "org.freedesktop.Sdk//20.08",
-  "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk8"],
+  "branch": "3-21.08",
+  "sdk": "org.freedesktop.Sdk//21.08",
+  "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk11"],
   "separate-locales": false,
  "appstream-compose": false,
   "build-options": {
     "env": {
       "V": "1",
-      "JAVA_HOME": "/usr/lib/sdk/openjdk8"
+      "JAVA_HOME": "/usr/lib/sdk/openjdk11"
     },
-    "append-path": "/usr/lib/sdk/openjdk8/bin"
+    "append-path": "/usr/lib/sdk/openjdk11/bin"
   },
   "modules": [
     {
@@ -21,8 +21,9 @@
         "buildsystem": "simple",
         "build-commands": [
           "mkdir -p /app/share/vlc/extra/bdj/jre",
-          "cp -r /usr/lib/sdk/openjdk8/jvm/java-8-openjdk/* /app/share/vlc/extra/bdj/jre",
-          "rm -rf /app/share/vlc/extra/bdj/jre/src.zip /app/share/vlc/extra/bdj/jre/include /app/share/vlc/extra/bdj/jre/demo /app/share/vlc/extra/bdj/jre/sample"
+          "cp -r /usr/lib/sdk/openjdk11/jvm/openjdk-11/* /app/share/vlc/extra/bdj/jre",
+          "rm -rf /app/share/vlc/extra/bdj/jre/lib/src.zip /app/share/vlc/extra/bdj/jre/lib/ct.sym",
+          "rm -rf /app/share/vlc/extra/bdj/jre/include /app/share/vlc/extra/bdj/jre/demo /app/share/vlc/extra/bdj/jre/sample"
         ]
     },
     {
@@ -35,9 +36,9 @@
       "sources": [
         {
           "type": "file",
-          "url": "http://apache.mirrors.ovh.net/ftp.apache.org/dist//ant/binaries/apache-ant-1.10.9-bin.tar.bz2",
+          "url": "http://apache.mirrors.ovh.net/ftp.apache.org/dist/ant/binaries/apache-ant-1.10.12-bin.tar.bz2",
           "dest-filename": "apache-ant-bin.tar.bz2",
-          "sha512": "e74f490c64addfb5040ee80d38d4de3057b8fc7c58dd627dd77883964fd41edfc208230f45ee5500d70fc07a2f81a1d8d069a3b70ed6055c2975c49d753b73bc"
+          "sha256": "276ea73f267a5b1a58f02e2eb5ef594a9b2885e33afb05ef995251d4d18377a6"
         }
       ]
     },
@@ -50,8 +51,12 @@
       "sources": [
         {
           "type": "archive",
-          "url": "http://ftp.videolan.org/videolan/libbluray/1.2.1/libbluray-1.2.1.tar.bz2",
-          "sha256": "5223e83f7988ea2cc860b5cadcaf9cf971087b0c80ca7b60cc17c8300cae36ec"
+          "url": "http://ftp.videolan.org/videolan/libbluray/1.3.0/libbluray-1.3.0.tar.bz2",
+          "sha256": "e2dbaf99e84e0a9725f4985bcb85d41e52c2261cc651d8884b1b790b5ef016f9"
+        },
+        {
+          "type": "patch",
+          "path": "libbluray-openjdk11.patch"
         }
       ]
     },

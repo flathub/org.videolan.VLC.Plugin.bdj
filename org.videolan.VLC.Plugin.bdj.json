@@ -6,8 +6,6 @@
   "branch": "3-24.08",
   "sdk": "org.freedesktop.Sdk//24.08",
   "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk8"],
-  "separate-locales": false,
- "appstream-compose": false,
   "build-options": {
     "env": {
       "V": "1",
@@ -62,8 +60,7 @@
       "build-commands": [
         "mv bdj-env.sh /app/share/vlc/extra/bdj",
         "rm -rf /app/share/vlc/extra/bdj/ant",
-        "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.videolan.VLC.Plugin.bdj.appdata.xml",
-        "appstream-compose --basename=org.videolan.VLC.Plugin.bdj --prefix=${FLATPAK_DEST} --origin=flatpak org.videolan.VLC.Plugin.bdj"
+        "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.videolan.VLC.Plugin.bdj.metainfo.xml"
       ],
       "sources": [
         {
@@ -72,7 +69,7 @@
         },
         {
           "type": "file",
-          "path": "org.videolan.VLC.Plugin.bdj.appdata.xml"
+          "path": "org.videolan.VLC.Plugin.bdj.metainfo.xml"
         }
       ]
     }

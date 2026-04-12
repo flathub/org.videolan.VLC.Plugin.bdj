@@ -3,25 +3,25 @@
   "build-extension": true,
   "runtime": "org.videolan.VLC",
   "runtime-version": "stable",
-  "branch": "3-24.08",
-  "sdk": "org.freedesktop.Sdk//24.08",
-  "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk8"],
+  "branch": "3-25.08",
+  "sdk": "org.freedesktop.Sdk//25.08",
+  "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk21"],
   "build-options": {
     "env": {
       "V": "1",
-      "JAVA_HOME": "/usr/lib/sdk/openjdk8"
+      "JAVA_HOME": "/usr/lib/sdk/openjdk21"
     },
-    "append-path": "/usr/lib/sdk/openjdk8/bin"
+    "append-path": "/usr/lib/sdk/openjdk21/bin"
   },
   "modules": [
     {
       "name": "openjdk",
         "buildsystem": "simple",
         "build-commands": [
-          "mkdir -p /app/share/vlc/extra/bdj/jre",
-          "cp -r /usr/lib/sdk/openjdk8/jvm/java-8-openjdk/* /app/share/vlc/extra/bdj/jre",
-          "rm -rf /app/share/vlc/extra/bdj/jre/lib/src.zip /app/share/vlc/extra/bdj/jre/lib/ct.sym",
-          "rm -rf /app/share/vlc/extra/bdj/jre/include /app/share/vlc/extra/bdj/jre/demo /app/share/vlc/extra/bdj/jre/sample"
+          "mkdir -p /app/share/vlc/extra/bdj/jre/bin",
+          "cp -ra /usr/lib/sdk/openjdk21/jvm/openjdk-21/{conf,lib,release} /app/share/vlc/extra/bdj/jre/",
+          "rm /app/share/vlc/extra/bdj/jre/lib/src.zip /app/share/vlc/extra/bdj/jre/lib/ct.sym",
+          "cp -ra /usr/lib/sdk/openjdk21/jvm/openjdk-21/bin/{java,keytool,rmiregistry} /app/share/vlc/extra/bdj/jre/bin"
         ]
     },
     {
@@ -34,23 +34,24 @@
       "sources": [
         {
           "type": "file",
-          "url": "http://apache.mirrors.ovh.net/ftp.apache.org/dist/ant/binaries/apache-ant-1.10.14-bin.tar.bz2",
+          "url": "https://dlcdn.apache.org/ant/binaries/apache-ant-1.10.17-bin.tar.bz2",
           "dest-filename": "apache-ant-bin.tar.bz2",
-          "sha256": "4c19450831001e6e9d5d2a94c3350f542f04f44f070085759c24f39d3cda928d"
+          "sha256": "5210fc9d77e96bf5f4639287f29826da85e54a542e0a409463b1642bc3caaee7"
         }
       ]
     },
     {
       "name": "libbluray",
-      "config-opts": ["--enable-shared", "--disable-static", "--prefix=/app/share/vlc/extra/bdj"],
+      "buildsystem": "meson",
+      "config-opts": ["-Dfontconfig=enabled", "-Dfreetype=enabled", "-Dlibxml2=enabled", "--prefix=/app/share/vlc/extra/bdj", "--libdir=/app/share/vlc/extra/bdj/lib"],
       "build-options": {
         "append-path": "/app/share/vlc/extra/bdj/ant/bin"
       },
       "sources": [
         {
           "type": "archive",
-          "url": "http://ftp.videolan.org/videolan/libbluray/1.3.4/libbluray-1.3.4.tar.bz2",
-          "sha256": "478ffd68a0f5dde8ef6ca989b7f035b5a0a22c599142e5cd3ff7b03bbebe5f2b"
+          "url": "https://downloads.videolan.org/pub/videolan/libbluray/1.4.1/libbluray-1.4.1.tar.xz",
+          "sha256": "76b5dc40097f28dca4ebb009c98ed51321b2927453f75cc72cf74acd09b9f449"
         }
       ]
     },

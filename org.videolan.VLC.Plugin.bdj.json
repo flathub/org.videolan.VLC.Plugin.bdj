@@ -5,13 +5,13 @@
   "runtime-version": "stable",
   "branch": "3-25.08",
   "sdk": "org.freedesktop.Sdk//25.08",
-  "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk11"],
+  "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk17"],
   "build-options": {
     "env": {
       "V": "1",
-      "JAVA_HOME": "/usr/lib/sdk/openjdk11"
+      "JAVA_HOME": "/usr/lib/sdk/openjdk17"
     },
-    "append-path": "/usr/lib/sdk/openjdk11/bin"
+    "append-path": "/usr/lib/sdk/openjdk17/bin"
   },
   "modules": [
     {
@@ -19,9 +19,9 @@
         "buildsystem": "simple",
         "build-commands": [
           "mkdir -p /app/share/vlc/extra/bdj/jre/bin",
-          "cp -ra /usr/lib/sdk/openjdk11/jvm/openjdk-11/{conf,lib,release} /app/share/vlc/extra/bdj/jre/",
+          "cp -ra /usr/lib/sdk/openjdk17/jvm/openjdk-17/{conf,lib,release} /app/share/vlc/extra/bdj/jre/",
           "rm /app/share/vlc/extra/bdj/jre/lib/src.zip /app/share/vlc/extra/bdj/jre/lib/ct.sym",
-          "cp -ra /usr/lib/sdk/openjdk11/jvm/openjdk-11/bin/{java,keytool,rmiregistry} /app/share/vlc/extra/bdj/jre/bin"
+          "cp -ra /usr/lib/sdk/openjdk17/jvm/openjdk-17/bin/{java,keytool,rmiregistry} /app/share/vlc/extra/bdj/jre/bin"
         ]
     },
     {
